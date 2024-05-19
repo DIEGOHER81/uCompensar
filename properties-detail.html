@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Detalle de Pelicula</title>
+
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+
+
+  <!-- Font awesome -->
+  <link href="css/font-awesome.css" rel="stylesheet">
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.css" rel="stylesheet">
+  <!-- slick slider -->
+  <link rel="stylesheet" type="text/css" href="css/slick.css">
+  <!-- price picker slider -->
+  <link rel="stylesheet" type="text/css" href="css/nouislider.css">
+  <!-- Fancybox slider -->
+  <link rel="stylesheet" href="css/jquery.fancybox.css" type="text/css" media="screen" />
+  <!-- Theme color -->
+  <link id="switcher" href="css/theme-color/default-theme.css" rel="stylesheet">
+
+  <!-- Main style sheet -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+  <!-- Google Font -->
+  <link href='https://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <style>
+    .whatsapp-button {
+      position: fixed;
+      left: 20px;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: green;
+      z-index: 9999;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp-icon {
+      width: 80px;
+      height: 80px;
+    }
+
+    /* Estilos adicionales */
+  </style>
+  <script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario" async defer></script>
+  
+
+  
+  <style>
+    #mapContainer {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body class="aa-price-range">
+  <!-- Pre Loader -->
+  <div id="aa-preloader-area">
+    <div class="pulse"></div>
+  </div>
+  <!-- SCROLL TOP BUTTON -->
+  <a class="scrollToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+  <!-- END SCROLL TOP BUTTON -->
+  <a href="https://wa.me/tunumerodetelefono" class="whatsapp-button" target="_blank" id="telwhatsapp">
+    <img src="adminV2/images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+  </a>
+
+
+  <!-- Start menu section -->
+  <section id="aa-menu-area">
+    <nav class="navbar navbar-default main-navbar" role="navigation">
+      <div class="container">
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu" class="nav navbar-nav navbar-right aa-main-nav">
+            <li class="active"><a href="index.html">Inicio</a></li>
+            <li><a href="properties.html">En Cartelera</a></li>
+            <li><a href="adminV2/view/login/login.php#signup">Registro</a></li>
+            <li><a href="adminV2/view/login/login.php">Iniciar Sesión</a></li>
+            <!--
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="properties.html">Propiedades<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">                
+                <li><a href="properties.html">Catalogo</a></li>
+                  <li><a href="properties-detail.html">Detalle de la propiedad</a></li>
+              </ul>
+            </li>
+            -->
+            <!--
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="blog-archive.html">Blog <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">                
+                <li><a href="blog-archive.html">BLOG</a></li>
+                <li><a href="blog-single.html">BLOG DETAILS</a></li>                                            
+              </ul>
+            </li>
+            -->
+            <li><a href="contact.html">Contáctenos</a></li>
+          </ul>                            
+        </div><!--/.nav-collapse -->       
+      </div>
+    </nav>
+  </section>
+  <!-- End menu section -->
+
+  <!-- Start Proerty header  -->
+
+  <section id="aa-property-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-property-header-inner">
+            <h2>Detalles de la propiedad</h2>
+            <ol class="breadcrumb">
+              <li><a href="#">Inicio</a></li>
+              <li class="active"><label id="tituloPropiedad"></label></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Proerty header  -->
+
+  <!-- Start Properties  -->
+  <section id="aa-properties">
+    <div class="container">
+      <!--Sección de Galerias-->
+      <div class="row">
+        <div class="col-md-6" style='padding-top:0.5%;padding-bottom:0.5%'>
+          <div class="aa-properties-details-img">
+            <img id='imgPrincipal' src="" alt="img" style="width: 100%;">
+          </div>
+        </div>
+        <div class="col-md-6" id="divgallerymain">
+        </div>
+      </div>
+      <!-- Ventana Modal inicio -->
+      <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="myModalLabel">Galería de fotos</h5>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid mb-5">
+                <div class="row row-cols-lg-3 row-cols-md-4 row-cols-sm-6 gx-2 gy-3">
+                  <div id="divgallery"></div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                onclick="OcultarGaleria()">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Fin Ventana Modal-->
+      <div class="row">
+        <div class="col-md-8">
+          <div class="aa-properties-content">
+            <!-- Start properties content body -->
+            <div class="aa-properties-details">
+
+              <div class="aa-properties-info">
+                <h2 id="tituloPropiedadParrafo">La casa en el árbol más espectacular de Colombia</h2>
+                <br>
+                <h4>Sinopsis</h4>
+                <br>
+                <p id="txtdescripcionpropiedad" style="text-align:justify"></p>
+                <div id="divcaracteristicaspropiedad" style="display:none">
+                  <h4>Características de Propiedad</h4>
+                  <div id="lstCaracteristicasPropiedad"></div>
+                </div>
+                <div id="divVideoPropiedad" style="display:none">
+                  <h4>Trailer</h4>
+                  <iframe width="100%" height="480" id="videopropiedad" src="" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+                </div>
+                <h4>Mapa de Ubicación <a class="collapse-link" id="VerMapa"><i id="fachevron" class="fa fa-chevron-down"></i></a></h4>
+                
+                <div id="mapContainer" style="width: 100%; height: 400px;display:none"></div>
+              </div>
+              <!-- Properties social share -->
+              <div class="aa-properties-social">
+                <ul>
+                  <li>Compartir en redes sociales</li>
+                  <li><a href="#" id="facebookShare"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" id="twitterShare"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" id="pinterestShare"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+              </div>
+              <!-- Nearby properties -->
+              <!--
+             <div class="aa-nearby-properties">
+               <div class="aa-title">
+                 <h2>Propiedades Cercanas</h2>
+                 <span></span>
+               </div>
+               <div class="aa-nearby-properties-area">
+                 <div class="row">
+                   <div class="col-md-6">
+                     <article class="aa-properties-item">
+                        <a class="aa-properties-item-img" href="#">
+                          <img alt="img" src="img/item/1.jpg">
+                        </a>
+                        <div class="aa-tag for-sale">
+                          Venta
+                        </div>
+                        <div class="aa-properties-item-content">
+                          <div class="aa-properties-info">
+                            <span>5 Habitaciones</span>
+                            <span>2 Camas</span>
+                            <span>3 Baños</span>
+                            <span>1100 M2</span>
+                          </div>
+                          <div class="aa-properties-about">
+                            <h3><a href="#">Paraty Brasil</a></h3>
+                            <p>A 39 kilometros de distancia.<br> 1 - 14 May</p>
+                          </div>
+                          <div class="aa-properties-detial">
+                            <span class="aa-price">
+                              $35000
+                            </span>
+                            <a class="aa-secondary-btn" href="#">Ver Detalles</a>
+                          </div>
+                        </div>
+                      </article>
+                   </div>
+                   <div class="col-md-6">
+                     <article class="aa-properties-item">
+                      <a class="aa-properties-item-img" href="#">
+                        <img alt="img" src="img/item/2.jpg">
+                      </a>
+                      <div class="aa-tag for-sale">
+                        Venta
+                      </div>
+                      <div class="aa-properties-item-content">
+                        <div class="aa-properties-info">
+                          <span>5 Habitaciones</span>
+                          <span>2 Camas</span>
+                          <span>3 Baños</span>
+                          <span>1100 M2</span>
+                        </div>
+                        <div class="aa-properties-about">
+                          <h3><a href="#">El peñol,  Colombia</a></h3>
+                          <p>A 39 kilometros de distancia.<br> 1 - 14 May</p>  
+                        </div>
+                        <div class="aa-properties-detial">
+                          <span class="aa-price">
+                            $35000
+                          </span>
+                          <a class="aa-secondary-btn" href="#">Ver Detalles</a>
+                        </div>
+                      </div>
+                    </article>
+                   </div>
+                 </div>
+               </div>
+
+             </div>
+              -->
+            </div>
+          </div>
+        </div>
+        <!-- Start properties sidebar -->
+        <div class="col-md-4">
+          <aside class="aa-properties-sidebar" style="margin-top:2%;border: 1px solid rgb(221, 221, 221);
+          border-radius: 12px;
+          padding: 24px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+      ">
+            <!-- Start Single properties sidebar -->
+            <div class="aa-properties-single-sidebar">
+              <form action="">
+                <div class="row">
+                  <div class="col-xs-6">
+                    <strong><span class="aa-price" id="Precio" style="font-size: 1.9em;"></span></strong>
+                    <strong><span class="aa-price" id="Precio_2" style="font-size: 1.9em;"></span></strong>
+                  </div>
+                </div>
+                <div class="row">
+                  <div style="border:1px solid #c2c2c2;height:80px;padding:3%;border-radius:5px">
+                    <div class="row">
+                      <div class="col-xs-6" style="border-right:1px solid #c2c2c2">
+                        <label style="font-weight: 100;">Llegada:</label>
+                        <input type="date" class="form-control">
+                      </div>
+                      <div class="col-xs-6">
+                        <label style="font-weight: 100;">Salida:</label>
+                        <input type="date" class="form-control">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <br>
+                        <label>Huéspedes</label><span class="fa fa-chevron-down" style="float: right; width: 20px;" onclick="MostrarDivhuespedes()"></span>
+                        <div id="dividhuespedes" style="display:none">
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <label>Adultos:</label>
+                              <div class="guests-select">
+                                <button class="guests-btn minus-btn" type="button">-</button>
+                                <select id="guests" name="guests" class="form-control"
+                                  style="width:80%;display:inline-flex">
+                                  <option value="1">1 Adulto</option>
+                                  <option value="2">2 Adultos</option>
+                                  <option value="3">3 Adultos</option>
+                                  <option value="4">4 Adultos</option>
+                                  <option value="5">5 Adultos</option>
+                                  <option value="6">6 Adultos</option>
+                                  <option value="7">7 Adultos</option>
+                                  <option value="8">8 Adultos</option>
+                                  <option value="9">9 Adultos</option>
+                                  <option value="10">10 Adultos</option>
+                                  <option value="11">11 Adultos</option>
+                                  <option value="12">12 Adultos</option>
+                                  <option value="13">13 Adultos</option>
+                                  <option value="14">14 Adultos</option>
+                                  <option value="15">15 Adultos</option>
+                                </select>
+                                <button class="guests-btn plus-btn" type="button">+</button>
+                              </div>
+                              <label for="childrens">Niños:</label>
+                              <div class="guests-select">
+                                <button class="childrens-btn minus-btn" type="button">-</button>
+                                <select id="childrens" name="childrens" class="form-control"
+                                  style="width:80%;display:inline-flex">
+                                  <option value="1">1 Niño</option>
+                                  <option value="2">2 Niños</option>
+                                  <option value="3">3 Niños</option>
+                                  <option value="4">4 Niños</option>
+                                  <option value="5">5 Niños</option>
+                                  <option value="6">6 Niños</option>
+                                  <option value="7">7 Niños</option>
+                                  <option value="8">8 Niños</option>
+                                  <option value="9">9 Niños</option>
+                                  <option value="10">10 Niños</option>
+                                  <option value="11">11 Niños</option>
+                                  <option value="12">12 Niños</option>
+                                  <option value="13">13 Niños</option>
+                                  <option value="14">14 Niños</option>
+                                  <option value="15">15 Niños</option>
+                                </select>
+                                <button class="childrens-btn plus-btn" type="button">+</button>
+                              </div>
+                              <label for="guests">Mascotas:</label>
+                              <div class="guests-select">
+                                <button class="pets-btn minus-btn" type="button">-</button>
+                                <select id="pets" name="pets" class="form-control"
+                                  style="width:80%;display:inline-flex">
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5">5</option>
+                                  <option value="6">6</option>
+                                  <option value="7">7</option>
+                                  <option value="8">8</option>
+                                  <option value="9">9</option>
+                                  <option value="10">10</option>
+                                </select>
+                                <button class="pets-btn plus-btn" type="button">+</button>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--
+                <div class="row">
+                  <hr>
+                  <div><strong>Políticas de cancelación</strong></div>
+                  <hr>
+                  <div class="_1t4rcbe">
+                    <label style="font-weight:300">
+                      <div>
+                        <div>
+                          <div>
+                            <input id="51" name="No reembolsable" type="radio" value="51">
+                            No reembolsable · $2,102,990&nbsp;COP en total
+
+                          </div>
+                        </div>
+
+                      </div>
+                    </label>
+                    <label style="font-weight:300">
+                      <div class="_10ccz83">
+                        <div>
+                          <input id="4" name="Reembolsable" type="radio" value="4">
+                          Reembolsable · $2,330,165&nbsp;COP en total <br>
+
+                        </div>
+                      </div>
+                    </label>
+                    <br>
+                    <label style="font-size:0.6em">
+                      Cancelación gratuita antes del 9 may. Si cancelas antes del check-in el 14 may., recibirás un
+                      reembolso parcial.
+                    </label>
+                  </div>
+                </div>
+                -->
+                <div class="aa-single-advance-search">
+                  <input type="submit" value="Reservar" class="aa-search-btn">
+                </div>
+                <div class="aa-single-advance-search">
+                  <a href="" class="aa-search-btn" style="display: inline;
+                  float: left;
+                  width: 100%;
+                  margin-top: 15px;
+                  border: medium none;
+                  border-radius: 5px;
+                  color: #fff;
+                  font-size: 18px;
+                  font-weight: bold;
+                  margin-top: 15px;
+                  height: 50px;
+                  outline: medium none;
+                  text-transform: uppercase;
+                  width: 100%;
+                  background-color: #32d951;
+                  text-align: center;
+                  vertical-align: middle;" id="btnSolicitarInformacion"><i class="fa fa-info" style="margin-top:5%">&nbsp; Solicitar Información</i></a>
+                </div>
+              </form>
+            </div>
+          </aside>
+          
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / Properties  -->
+
+  <!-- Footer -->
+  <footer id="aa-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="aa-footer-area">
+            <div class="row">
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="aa-footer-left">
+                  <p>Designed by <a rel="nofollow" href="http://www.desarrollaloya.com/">Desarrollalo Ya! By Diego Hernándezs</a></p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="aa-footer-middle">
+                  <a href="#" id="linkfacebook"><i class="fa fa-facebook"></i></a>
+                  <a href="#" id="linktwitter"><i class="fa fa-twitter"></i></a>
+                  <a href="#" id="linkyoutube"><i class="fa fa-youtube"></i></a>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="aa-footer-right">
+                  <a href="index.html">Inicio</a>
+                  <a href="#" id="lnkpoliticadeprivacidad">Politica de Privacidad</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- / Footer -->
+
+
+  <!-- jQuery library -->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+  <script src="js/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.js"></script>
+  <!-- slick slider -->
+  <script type="text/javascript" src="js/slick.js"></script>
+  <!-- Price picker slider -->
+  <script type="text/javascript" src="js/nouislider.js"></script>
+  <!-- mixit slider -->
+  <script type="text/javascript" src="js/jquery.mixitup.js"></script>
+  <!-- Add fancyBox -->
+  <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
+  <!-- Custom js -->
+  <script src="js/custom.js"></script>
+  <!-- Custom js -->
+  <script src="js/book.js"></script>
+  <script src="js/propertiesdetail.js"></script>
+
+</body>
+
+</html>

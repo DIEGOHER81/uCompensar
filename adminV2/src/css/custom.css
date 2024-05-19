@@ -1,0 +1,48 @@
+.principalColor{
+    background-color:#4682B4;
+}
+
+.classBtn_withimg{
+    background: none;
+    color: white;
+    padding: 0;
+    border: 0;
+  }
+
+  .password-input-container {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+    
+  .toggle-password:last-child {
+    display: none;
+  }
+  
+  /* Estilos para el ícono del ojo */
+  .toggle-password-register {
+    position: absolute;
+    top: 35%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+    
+  .toggle-password-register:last-child {
+    display: none;
+  }
+  
+
+  body .container.body .right_col {
+    background: #f5f7fb!important;
+  }
+
+ 

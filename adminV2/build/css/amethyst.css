@@ -1,0 +1,225 @@
+.hideform{
+    display:none;
+}
+
+.showform{
+    display: inline-block;
+}
+
+
+button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+/*Este CSS sirve para ajustar la parte visual de los botones.*/
+/*
+span > input {
+  background: none;
+  color: white;
+  padding: 0;
+  border: 0;
+}
+*/
+
+.classBtn_withimg{
+  background: none;
+  color: white;
+  padding: 0;
+  border: 0;
+}
+
+.fc-content{
+  color:#FFF!important;
+}
+
+
+.fc-event, .fc-event-dot {
+  background-color: #28a745!important ;
+}
+
+
+.popper,
+.tooltip {
+  position: absolute;
+  z-index: 9999;
+  background: #FFC107;
+  color: black;
+  width: 150px;
+  border-radius: 3px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.5);
+  padding: 10px;
+  text-align: center;
+}
+.style5 .tooltip {
+  background: #1E252B;
+  color: #FFFFFF;
+  max-width: 200px;
+  width: auto;
+  font-size: .8rem;
+  padding: .5em 1em;
+}
+.popper .popper__arrow,
+.tooltip .tooltip-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  margin: 5px;
+}
+
+.tooltip .tooltip-arrow,
+.popper .popper__arrow {
+  border-color: #FFC107;
+}
+.style5 .tooltip .tooltip-arrow {
+  border-color: #1E252B;
+}
+.popper[x-placement^="top"],
+.tooltip[x-placement^="top"] {
+  margin-bottom: 5px;
+}
+.popper[x-placement^="top"] .popper__arrow,
+.tooltip[x-placement^="top"] .tooltip-arrow {
+  border-width: 5px 5px 0 5px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  bottom: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.popper[x-placement^="bottom"],
+.tooltip[x-placement^="bottom"] {
+  margin-top: 5px;
+}
+.tooltip[x-placement^="bottom"] .tooltip-arrow,
+.popper[x-placement^="bottom"] .popper__arrow {
+  border-width: 0 5px 5px 5px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  top: -5px;
+  left: calc(50% - 5px);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.tooltip[x-placement^="right"],
+.popper[x-placement^="right"] {
+  margin-left: 5px;
+}
+.popper[x-placement^="right"] .popper__arrow,
+.tooltip[x-placement^="right"] .tooltip-arrow {
+  border-width: 5px 5px 5px 0;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  left: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+.popper[x-placement^="left"],
+.tooltip[x-placement^="left"] {
+  margin-right: 5px;
+}
+.popper[x-placement^="left"] .popper__arrow,
+.tooltip[x-placement^="left"] .tooltip-arrow {
+  border-width: 5px 0 5px 5px;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  right: -5px;
+  top: calc(50% - 5px);
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/*
+a:hover {
+  background-color: #76D7C4!important;
+  color:#FFF!important;
+}
+*/
+
+.nav.child_menu>li>a:hover {
+  background-color: #1E8449!important;
+  color:#FFF!important;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+  background-color: #1E8449!important;
+  color:#FFF!important;
+}
+
+
+.btn-primary{
+    background-color: #5F9EA0!important;
+    border-color: #5F9EA0!important;
+  }
+  
+  .btn-info{
+    background-color: #2F4F4F!important;
+    border-color: #2F4F4F!important;
+  }
+  
+  .btn-success{
+    background-color: #145A32!important;
+    border-color: #145A32!important;
+  }
+  
+  .btn-danger{
+    background-color: #8B0000!important;
+    border-color: #8B0000!important;
+    color:#FFFFFF;
+  }
+  
+  .btn-yes{
+    background-color: #006400!important;
+    border-color: #006400!important;
+    color:#FFFFFF;
+  }
+  
+  
+
+div .dt-buttons{
+  float : left;
+  margin-right: 3%;
+}
+
+.dataTables_length{
+  float : left;
+}
+
+
+.carddashbord{
+  border-left: 1px solid #DF3A01;
+}
+
+
+.display-5 {
+  font-size: 1.5rem!important;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
+.icon-circle {
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.bg-primary {
+  --bs-bg-opacity: 1;
+  background-color:#2E64FE;
+}
+
+.me-2 {
+  margin-right: 0.5rem !important;
+}

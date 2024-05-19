@@ -1,0 +1,7 @@
+[08-Apr-2024 22:43:57 UTC] PHP Warning:  Undefined array key "coduser" in /home/desarrol/demosdesarrollo.desarrollaloya.com/real_estate/adminV2/view/propiedades/relpropiedades.php on line 6
+[08-Apr-2024 22:43:57 UTC] PHP Stack trace:
+[08-Apr-2024 22:43:57 UTC] PHP   1. {main}() /home/desarrol/demosdesarrollo.desarrollaloya.com/real_estate/adminV2/view/propiedades/relpropiedades.php:0
+[09-Apr-2024 00:13:28 UTC] PHP Warning:  Undefined array key "coduser" in /home/desarrol/demosdesarrollo.desarrollaloya.com/real_estate/adminV2/view/propiedades/relpropiedades.php on line 6
+[09-Apr-2024 00:13:28 UTC] PHP Stack trace:
+[09-Apr-2024 00:13:28 UTC] PHP   1. {main}() /home/desarrol/demosdesarrollo.desarrollaloya.com/real_estate/adminV2/view/propiedades/relpropiedades.php:0
+[21-Apr-2024 14:32:42 UTC] PHP Warning:  Undefined array key "coduser" in /home/desarrol/demosdesarrollo.desarrollaloya.com/real_estate/adminV2/view/propiedades/propiedades.php on line 6
